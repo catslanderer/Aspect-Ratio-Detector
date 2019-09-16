@@ -1,6 +1,6 @@
 # Aspect-Ratio-Detector
 
-I'm exploring using media queries to detect aspect ratio (and not just screen width). I'm specifically interested in cases where we have a square-ish game board area and controls that could be positioned either below or beside the game board.
+I'm exploring using media queries to detect aspect ratio (and not just screen width). I'm specifically interested in cases where we have a square viewing area and a rectangular controls area that could be positioned either below or beside the viewing area. I want the viewing area to be as large as possible while keeping the controls visible at all times.
 
 ---
 
