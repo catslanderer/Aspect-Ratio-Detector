@@ -133,20 +133,30 @@ html {
   font-size: 2em;
   color: white;
 }
+.title {
+  background: deeppink;
+  border-radius: 5px;
+  margin: 10px auto;
+  width: 70vmin;
+  height: 5vmin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .board {
   background: deeppink;
   border-radius: 5px;
   margin: 10px auto;
-  width: 90vmin;
-  height: 90vmin;
+  width: 70vmin;
+  height: 70vmin;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .controls {
   margin: 10px auto;
-  width: 90vmin;
-  height: 30vmin;
+  width: 70vmin;
+  height: 20vmin;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
