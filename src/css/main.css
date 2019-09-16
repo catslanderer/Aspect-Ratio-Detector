@@ -134,7 +134,8 @@ html {
   color: white;
 }
 .board {
-  background: red;
+  background: deeppink;
+  border-radius: 5px;
   margin: 10px auto;
   width: 90vmin;
   height: 90vmin;
@@ -153,7 +154,8 @@ html {
   grid-row-gap: 10px;
 }
 .button {
-  background: green;
+  background: teal;
+  border-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
