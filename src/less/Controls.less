@@ -1,12 +1,21 @@
 .controls {
   margin: 1vmin 0;
-  width: 70vmin;
-  height: 20vmin;
+  width: 20vmin;
+  height: 70vmin;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  grid-column-gap: 1vmin;
-  grid-row-gap: 1vmin;
+  background: chartreuse;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  // Note the escaped ratio ~'1/1'. less compiles this to 1, which doesn't work.
+  @media (max-aspect-ratio: ~'1/1') {
+    background: coral;
+    width: 70vmin;
+    height: 20vmin;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-column-gap: 1vmin;
+    grid-row-gap: 1vmin;
+  }
 }
 
 .button {

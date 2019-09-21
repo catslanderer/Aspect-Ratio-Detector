@@ -135,6 +135,14 @@ html {
   font-size: 3vmin;
   color: white;
 }
+.App {
+  display: flex;
+}
+@media (max-aspect-ratio: 1/1) {
+  .App {
+    flex-direction: column;
+  }
+}
 .title {
   background: deeppink;
   border-radius: 5px;
@@ -157,13 +165,23 @@ html {
 }
 .controls {
   margin: 1vmin 0;
-  width: 70vmin;
-  height: 20vmin;
+  width: 20vmin;
+  height: 70vmin;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  grid-column-gap: 1vmin;
-  grid-row-gap: 1vmin;
+  background: chartreuse;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+@media (max-aspect-ratio: 1/1) {
+  .controls {
+    background: coral;
+    width: 70vmin;
+    height: 20vmin;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-column-gap: 1vmin;
+    grid-row-gap: 1vmin;
+  }
 }
 .button {
   background: teal;
