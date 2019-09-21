@@ -7,11 +7,11 @@ import Controls from './Controls';
 function App() {
   return (
     <div className='App'>
+      <Title />
       <div className='boardDiv'>
-        <Title />
         <Board />
+        <Controls />
       </div>
-      <Controls />
     </div>
   );
 }

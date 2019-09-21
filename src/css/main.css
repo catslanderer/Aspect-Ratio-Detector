@@ -137,9 +137,19 @@ html {
 }
 .App {
   display: flex;
+  flex-direction: column;
 }
 @media (max-aspect-ratio: 1/1) {
   .App {
+    flex-direction: column;
+  }
+}
+.boardDiv {
+  display: flex;
+  flex-direction: row;
+}
+@media (max-aspect-ratio: 1/1) {
+  .boardDiv {
     flex-direction: column;
   }
 }
@@ -147,11 +157,16 @@ html {
   background: deeppink;
   border-radius: 5px;
   margin: 1vmin 0;
-  width: 70vmin;
+  width: 90vmin;
   height: 5vmin;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+@media (max-aspect-ratio: 1/1) {
+  .title {
+    width: 70vmin;
+  }
 }
 .board {
   background: deeppink;
@@ -168,19 +183,17 @@ html {
   width: 20vmin;
   height: 70vmin;
   display: grid;
-  background: chartreuse;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-column-gap: 1vmin;
+  grid-row-gap: 1vmin;
 }
 @media (max-aspect-ratio: 1/1) {
   .controls {
-    background: coral;
     width: 70vmin;
     height: 20vmin;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    grid-column-gap: 1vmin;
-    grid-row-gap: 1vmin;
   }
 }
 .button {

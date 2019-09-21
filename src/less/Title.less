@@ -2,9 +2,12 @@
   background: deeppink;
   border-radius: 5px;
   margin: 1vmin 0;
-  width: 70vmin;
+  width: 90vmin;
   height: 5vmin;
   display: flex;
   justify-content: center;
   align-items: center;
+  @media (max-aspect-ratio: ~'1/1') {
+    width: 70vmin;
+  }
 }

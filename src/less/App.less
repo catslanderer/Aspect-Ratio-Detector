@@ -1,5 +1,14 @@
 .App {
   display: flex;
+  flex-direction: column;
+  @media (max-aspect-ratio: ~'1/1') {
+    flex-direction: column;
+  }
+}
+
+.boardDiv {
+  display: flex;
+  flex-direction: row;
   @media (max-aspect-ratio: ~'1/1') {
     flex-direction: column;
   }
