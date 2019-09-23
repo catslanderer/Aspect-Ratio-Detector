@@ -137,6 +137,11 @@ html {
 }
 .App {
   display: grid;
+  height: 100vh;
+  width: 130vh;
+  grid-template-columns: 1fr 91fr 1fr 36fr 1fr;
+  grid-template-rows: 1fr 6fr 1fr 91fr 1fr;
+  grid-template-areas: '. . . . .' '. title title title .' '. . . . .' '. board . controls .' '. . . . .';
 }
 @media (max-aspect-ratio: 4/3) {
   .App {
@@ -179,13 +184,11 @@ html {
   justify-content: center;
   align-items: center;
 }
-@media (max-aspect-ratio: 3/4) {
-  .board {
-    background: chartreuse;
-  }
-}
 .controls {
   display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 14.334fr 1fr 14.334fr 1fr 14.334fr 1fr 14.334fr 1fr 14.334fr 1fr 14.334fr;
+  grid-template-areas: 'button1' '.' 'button2' '.' 'button3' '.' 'button4' '.' 'button5' '.' 'button6';
 }
 @media (max-aspect-ratio: 4/3) {
   .controls {

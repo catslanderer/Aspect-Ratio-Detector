@@ -1,15 +1,16 @@
 .App {
   display: grid;
   // Applied at 4/3 and above:
-  // height: 99vh;
-  // width: 131.66vh;
-  // grid-column-gap: 0.25em;
-  // grid-row-gap: 0.25em;
-  // grid-template-columns: 100fr 33fr;
-  // grid-template-rows: 8fr 125fr;
-  // grid-template-areas:
-  //   'title title'
-  //   'board controls';
+  height: 100vh;
+  width: 130vh;
+  grid-template-columns: 1fr 91fr 1fr 36fr 1fr;
+  grid-template-rows: 1fr 6fr 1fr 91fr 1fr;
+  grid-template-areas:
+    '. . . . .'
+    '. title title title .'
+    '. . . . .'
+    '. board . controls .'
+    '. . . . .';
   // Applied between 3/4 and 4/3:
   @media (max-aspect-ratio: ~'4/3') {
     width: 76.92307vh;
