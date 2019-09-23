@@ -1,27 +1,53 @@
 .App {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   // Applied at 4/3 and above:
-  height: 99vh;
-  width: 132vh;
-  background: deeppink;
+  // height: 99vh;
+  // width: 131.66vh;
+  // grid-column-gap: 0.25em;
+  // grid-row-gap: 0.25em;
+  // grid-template-columns: 100fr 33fr;
+  // grid-template-rows: 8fr 125fr;
+  // grid-template-areas:
+  //   'title title'
+  //   'board controls';
+  // Applied between 3/4 and 4/3:
   @media (max-aspect-ratio: ~'4/3') {
-    background: green;
-    width: 74vh;
-    height: 99vh;
+    width: 76.92307vh;
+    height: 100vh;
+    grid-template-columns: 1fr 98fr 1fr;
+    grid-template-rows: 1fr 6fr 1fr 98fr 1fr 22fr 1fr;
+    grid-template-areas:
+      '. . .'
+      '. title .'
+      '. . .'
+      '. board .'
+      '. . .'
+      '. controls .'
+      '. . .';
   }
+  // Applied up to 3/4:
   @media (max-aspect-ratio: ~'3/4') {
-    background: blue;
-    width: 99vw;
-    height: 132vw;
+    width: 100vw;
+    height: 130vw;
+    grid-template-columns: 1fr 98fr 1fr;
+    grid-template-rows: 1fr 6fr 1fr 98fr 1fr 22fr 1fr;
+    grid-template-areas:
+      '. . .'
+      '. title .'
+      '. . .'
+      '. board .'
+      '. . .'
+      '. controls .'
+      '. . .';
   }
 }
 
-.boardDiv {
-  // width: 100%;
-  // display: flex;
-  // flex-direction: row;
-  // @media (max-aspect-ratio: ~'1/1') {
-  //   flex-direction: column;
-  // }
+.title {
+  grid-area: title;
+}
+.board {
+  grid-area: board;
+}
+.controls {
+  grid-area: controls;
 }
