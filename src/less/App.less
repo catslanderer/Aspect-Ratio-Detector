@@ -1,15 +1,27 @@
 .App {
   display: flex;
   flex-direction: column;
-  @media (max-aspect-ratio: ~'1/1') {
-    flex-direction: column;
+  // Applied at 4/3 and above:
+  height: 99vh;
+  width: 132vh;
+  background: deeppink;
+  @media (max-aspect-ratio: ~'4/3') {
+    background: green;
+    width: 74vh;
+    height: 99vh;
+  }
+  @media (max-aspect-ratio: ~'3/4') {
+    background: blue;
+    width: 99vw;
+    height: 132vw;
   }
 }
 
 .boardDiv {
-  display: flex;
-  flex-direction: row;
-  @media (max-aspect-ratio: ~'1/1') {
-    flex-direction: column;
-  }
+  // width: 100%;
+  // display: flex;
+  // flex-direction: row;
+  // @media (max-aspect-ratio: ~'1/1') {
+  //   flex-direction: column;
+  // }
 }
