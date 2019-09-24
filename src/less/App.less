@@ -1,32 +1,5 @@
 .App {
   display: grid;
-  // Applied at 4/3 and above:
-  height: 100vh;
-  width: 130vh;
-  grid-template-columns: 1fr 91fr 1fr 36fr 1fr;
-  grid-template-rows: 1fr 6fr 1fr 91fr 1fr;
-  grid-template-areas:
-    '. . . . .'
-    '. title title title .'
-    '. . . . .'
-    '. board . controls .'
-    '. . . . .';
-  // Applied between 3/4 and 4/3:
-  @media (max-aspect-ratio: ~'4/3') {
-    width: 76.92307vh;
-    height: 100vh;
-    grid-template-columns: 1fr 98fr 1fr;
-    grid-template-rows: 1fr 6fr 1fr 98fr 1fr 22fr 1fr;
-    grid-template-areas:
-      '. . .'
-      '. title .'
-      '. . .'
-      '. board .'
-      '. . .'
-      '. controls .'
-      '. . .';
-  }
-  // Applied up to 3/4:
   @media (max-aspect-ratio: ~'3/4') {
     width: 100vw;
     height: 130vw;
@@ -40,6 +13,32 @@
       '. . .'
       '. controls .'
       '. . .';
+  }
+  @media (min-aspect-ratio: ~'3/4') and (max-aspect-ratio: ~'4/3') {
+    width: 76.92307vh;
+    height: 100vh;
+    grid-template-columns: 1fr 98fr 1fr;
+    grid-template-rows: 1fr 6fr 1fr 98fr 1fr 22fr 1fr;
+    grid-template-areas:
+      '. . .'
+      '. title .'
+      '. . .'
+      '. board .'
+      '. . .'
+      '. controls .'
+      '. . .';
+  }
+  @media (min-aspect-ratio: ~'4/3') {
+    height: 100vh;
+    width: 130vh;
+    grid-template-columns: 1fr 91fr 1fr 36fr 1fr;
+    grid-template-rows: 1fr 6fr 1fr 91fr 1fr;
+    grid-template-areas:
+      '. . . . .'
+      '. title title title .'
+      '. . . . .'
+      '. board . controls .'
+      '. . . . .';
   }
 }
 

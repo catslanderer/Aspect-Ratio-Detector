@@ -137,20 +137,6 @@ html {
 }
 .App {
   display: grid;
-  height: 100vh;
-  width: 130vh;
-  grid-template-columns: 1fr 91fr 1fr 36fr 1fr;
-  grid-template-rows: 1fr 6fr 1fr 91fr 1fr;
-  grid-template-areas: '. . . . .' '. title title title .' '. . . . .' '. board . controls .' '. . . . .';
-}
-@media (max-aspect-ratio: 4/3) {
-  .App {
-    width: 76.92307vh;
-    height: 100vh;
-    grid-template-columns: 1fr 98fr 1fr;
-    grid-template-rows: 1fr 6fr 1fr 98fr 1fr 22fr 1fr;
-    grid-template-areas: '. . .' '. title .' '. . .' '. board .' '. . .' '. controls .' '. . .';
-  }
 }
 @media (max-aspect-ratio: 3/4) {
   .App {
@@ -159,6 +145,24 @@ html {
     grid-template-columns: 1fr 98fr 1fr;
     grid-template-rows: 1fr 6fr 1fr 98fr 1fr 22fr 1fr;
     grid-template-areas: '. . .' '. title .' '. . .' '. board .' '. . .' '. controls .' '. . .';
+  }
+}
+@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 4/3) {
+  .App {
+    width: 76.92307vh;
+    height: 100vh;
+    grid-template-columns: 1fr 98fr 1fr;
+    grid-template-rows: 1fr 6fr 1fr 98fr 1fr 22fr 1fr;
+    grid-template-areas: '. . .' '. title .' '. . .' '. board .' '. . .' '. controls .' '. . .';
+  }
+}
+@media (min-aspect-ratio: 4/3) {
+  .App {
+    height: 100vh;
+    width: 130vh;
+    grid-template-columns: 1fr 91fr 1fr 36fr 1fr;
+    grid-template-rows: 1fr 6fr 1fr 91fr 1fr;
+    grid-template-areas: '. . . . .' '. title title title .' '. . . . .' '. board . controls .' '. . . . .';
   }
 }
 .title {
@@ -186,15 +190,19 @@ html {
 }
 .controls {
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 14.334fr 1fr 14.334fr 1fr 14.334fr 1fr 14.334fr 1fr 14.334fr 1fr 14.334fr;
-  grid-template-areas: 'button1' '.' 'button2' '.' 'button3' '.' 'button4' '.' 'button5' '.' 'button6';
 }
 @media (max-aspect-ratio: 4/3) {
   .controls {
     grid-template-columns: 32fr 1fr 32fr 1fr 32fr;
     grid-template-rows: 10.5fr 1fr 10.5fr;
     grid-template-areas: 'button1 . button2 . button3' '. . . . .' 'button4 . button5 . button6';
+  }
+}
+@media (min-aspect-ratio: 4/3) {
+  .controls {
+    grid-template-columns: 1fr;
+    grid-template-rows: 14.334fr 1fr 14.334fr 1fr 14.334fr 1fr 14.334fr 1fr 14.334fr 1fr 14.334fr;
+    grid-template-areas: 'button1' '.' 'button2' '.' 'button3' '.' 'button4' '.' 'button5' '.' 'button6';
   }
 }
 .button1 {
