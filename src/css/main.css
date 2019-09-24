@@ -149,8 +149,8 @@ html {
 }
 @media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 4/3) {
   .App {
-    width: 76.92307vh;
-    height: 100vh;
+    width: 75vh;
+    height: 97.5vh;
     grid-template-columns: 1fr 98fr 1fr;
     grid-template-rows: 1fr 6fr 1fr 98fr 1fr 22fr 1fr;
     grid-template-areas: '. . .' '. title .' '. . .' '. board .' '. . .' '. controls .' '. . .';
@@ -158,8 +158,8 @@ html {
 }
 @media (min-aspect-ratio: 4/3) {
   .App {
-    height: 100vh;
     width: 130vh;
+    height: 100vh;
     grid-template-columns: 1fr 91fr 1fr 36fr 1fr;
     grid-template-rows: 1fr 6fr 1fr 91fr 1fr;
     grid-template-areas: '. . . . .' '. title title title .' '. . . . .' '. board . controls .' '. . . . .';
