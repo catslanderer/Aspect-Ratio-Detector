@@ -1,74 +1,74 @@
 # Aspect-Ratio-Detector
 
-I'm exploring using media queries to detect aspect ratio (and not just screen width). I'm specifically interested in cases where we have a square viewing area and a rectangular controls area that could be positioned either below or beside the viewing area. I want the viewing area to be as large as possible while keeping the controls visible at all times.
+## Try it on [CodeSandbox](https://codesandbox.io/s/github/ChristopherJFoster/Aspect-Ratio-Detector)!
 
----
+In this project I'm exploring using media queries to detect and respond to aspect ratio **and** screen width (not just the latter). Designing for different screen widths is a bit simpler, and it obviously works pretty well for scrollable material like paragraphs of text or a series of images. However, there are cases where some elements (perhaps the primary elements) of an app need to be visible at all times. Furthermore, we might want those elements to be as large as possible based on the available screen real estate.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A few of my projects have been implementations of games ([Conway's Life](https://github.com/ChristopherJFoster/Conways-Life) and a version of [Battleship](<https://en.wikipedia.org/wiki/Battleship_(game)>) called Sandwich Hunter (in development)). In both cases we have a board component and a controls component, and it won't do to force the user to scroll to see one or the other. My implementation of Life features a square grid, and Battleship already uses square grids, so I use a square board component in this project.
 
-## Available Scripts
+### Project goals:
 
-In the project directory, you can run:
+1. Title, Board, and Controls components are always fully visible.
+2. App proportions are either 3/4 or 4/3.
+   - These two ratios cover most use cases while requiring the user to be familiar with at most two app layouts.
+3. Title component runs full width of app.
+4. Board component is as large as possible while accounting for 2, 3.
+5. Controls component is as large as possible while accounting for 2, 3, 4.
+6. Do not ask users to adjust their device or screen to accomodate the app.
 
-### `npm start`
+Note that it's quite possible to meet some goals while only querying screen width. One would begin by choosing either the 3/4 or 4/3 layout for the app, and then choose one of the following options:
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Ask the user to resize their browser window or reorient their device to better fit your app. This accomplishes goals 1-5 while obviously failing to accomplish goal 6.
+- Accept that aspect ratio mismatches will result in large amounts of unused space. This accomplishes goals 1-3 and 6 while failing to accomplish goals 4 and 5.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+![examples of aspect ratio mismatches](src/assets/images/aspect_ratio_mismatches.png)
 
-### `npm test`
+With a combination of aspect ratio media queries and responsiveness to screen width and height, however, we can achieve all six goals in one design.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### The Aspect Ratio Media Query
 
-### `npm run build`
+The [aspect ratio media query](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/aspect-ratio) works with min, max and exact values, and the value supplied must be in the form of width/height. For example, to apply CSS rules at exactly a 4/3 aspect ratio, we'd use something like:
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```css
+@media (aspect-ratio: 4/3) {
+  background: chartreuse;
+}
+```
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Note that even though 4/3 = 1.25, supplying 1.25 as the aspect ratio is invalid CSS syntax. Note also that if you're using [less](http://lesscss.org/), the compiler will unhelpfully turn that 4/3 into 1.25. The [workaround](https://github.com/less/less.js/issues/3225) is to escape the ratio thusly:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```css
+@media (aspect-ratio: ~'4/3') {
+  background: chartreuse;
+}
+```
 
-### `npm run eject`
+For this project I'm not interested in exact aspect ratios, but in setting up ranges. Specifically, I wanted the design to respond to aspect ratios in three ranges:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. up to 3/4
+2. from 3/4 to 4/3
+3. 4/3 and above
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+After some research and tinkering, I learned that the above can be accomplished, simply enough, with the following media queries:
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```css
+@media (max-aspect-ratio: ~'3/4') {
+  ...;
+}
+@media (min-aspect-ratio: ~'3/4') and (max-aspect-ratio: ~'4/3') {
+  ...;
+}
+@media (min-aspect-ratio: ~'4/3') {
+  ...;
+}
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+If you've noticed that in the code above multiple rules apply when the aspect ratio is _exactly_ 3/4 or 4/3, then good for you for paying attention. If you noticed that, then you may already know that CSS rules are applied in order, and that the last one will prevail. Thus an exact 3/4 aspect ratio would have the second set of rules applied, and an exact 4/3 would have the third set of rules applied. Note that this means you should be careful if you use overlapping aspect ratio media queries in multiple places in your CSS. Make sure that your ranges of aspect ratios are in the same order each time you use them.
 
-## Learn More
+So now we can apply CSS rules selectively based on the detected aspect ratio of the viewport/screen. This alone is a useful feature to understand, but it isn't enough to meet all six goals outlined earlier - we still need to the app to respond to screen size.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Responsiveness to either screen width _or_ height
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Conclusion / Notes
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+There is probably more to know about aspect ratio media queries than I discuss here. My main aim, however, was to meet the goals I described above, and to document the process. If you're reading this and you're not me, I hope you've learned something, and that maybe I've saved you a bit of effort in solving a similar puzzle.
