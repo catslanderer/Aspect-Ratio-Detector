@@ -131,8 +131,17 @@ html {
   display: flex;
   justify-content: center;
 }
-.text {
+.small-text {
   font-size: 0.75em;
+  color: white;
+}
+.medium-text {
+  font-size: 1.25em;
+  color: white;
+}
+.large-text {
+  font-size: 3em;
+  padding: 0.25em 0 1em 0;
   color: white;
 }
 .App {
@@ -185,6 +194,7 @@ html {
   background: deeppink;
   border-radius: 5px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
