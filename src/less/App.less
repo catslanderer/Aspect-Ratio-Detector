@@ -14,7 +14,7 @@
       '. controls .'
       '. . .';
   }
-  @media (min-aspect-ratio: ~'3/4') and (max-aspect-ratio: ~'4/3') {
+  @media (min-aspect-ratio: ~'3/4') and (max-aspect-ratio: ~'1/1') {
     width: 75vh;
     height: 97.5vh;
     grid-template-columns: 1fr 98fr 1fr;
@@ -27,6 +27,18 @@
       '. . .'
       '. controls .'
       '. . .';
+  }
+  @media (min-aspect-ratio: ~'1/1') and (max-aspect-ratio: ~'4/3') {
+    width: 97.5vw;
+    height: 75vw;
+    grid-template-columns: 1fr 91fr 1fr 36fr 1fr;
+    grid-template-rows: 1fr 6fr 1fr 91fr 1fr;
+    grid-template-areas:
+      '. . . . .'
+      '. title title title .'
+      '. . . . .'
+      '. board . controls .'
+      '. . . . .';
   }
   @media (min-aspect-ratio: ~'4/3') {
     width: 130vh;

@@ -1,6 +1,6 @@
 .controls {
   display: grid;
-  @media (max-aspect-ratio: ~'4/3') {
+  @media (max-aspect-ratio: ~'1/1') {
     grid-template-columns: 32fr 1fr 32fr 1fr 32fr;
     grid-template-rows: 10.5fr 1fr 10.5fr;
     grid-template-areas:
@@ -8,7 +8,7 @@
       '. . . . .'
       'button4 . button5 . button6';
   }
-  @media (min-aspect-ratio: ~'4/3') {
+  @media (min-aspect-ratio: ~'1/1') {
     grid-template-columns: 1fr;
     grid-template-rows: 14.334fr 1fr 14.334fr 1fr 14.334fr 1fr 14.334fr 1fr 14.334fr 1fr 14.334fr;
     grid-template-areas:
