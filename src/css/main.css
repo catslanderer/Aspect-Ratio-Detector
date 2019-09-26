@@ -144,6 +144,15 @@ html {
   padding: 0.25em 0 1em 0;
   color: white;
 }
+.title {
+  grid-area: title;
+}
+.board {
+  grid-area: board;
+}
+.controls {
+  grid-area: controls;
+}
 .App {
   display: grid;
 }
@@ -184,16 +193,7 @@ html {
   }
 }
 .title {
-  grid-area: title;
-}
-.board {
-  grid-area: board;
-}
-.controls {
-  grid-area: controls;
-}
-.title {
-  background: deeppink;
+  background: coral;
   border-radius: 5px;
   display: flex;
   justify-content: center;

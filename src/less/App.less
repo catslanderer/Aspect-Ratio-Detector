@@ -1,3 +1,13 @@
+.title {
+  grid-area: title;
+}
+.board {
+  grid-area: board;
+}
+.controls {
+  grid-area: controls;
+}
+
 .App {
   display: grid;
   @media (max-aspect-ratio: ~'3/4') {
@@ -52,14 +62,4 @@
       '. board . controls .'
       '. . . . .';
   }
-}
-
-.title {
-  grid-area: title;
-}
-.board {
-  grid-area: board;
-}
-.controls {
-  grid-area: controls;
 }
