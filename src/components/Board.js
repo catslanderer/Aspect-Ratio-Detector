@@ -18,10 +18,10 @@ export default function Board() {
       <p className={'medium-text'}>Viewport Aspect Ratio:</p>
       {lessThan34 && !exactly34 && <p className={'large-text'}>&lt; 3/4</p>}
       {between34and11 && !exactly11 && (
-        <p className={'large-text'}>&gt;= 3/4 and &lt; 1/1</p>
+        <p className={'large-text'}>&gt;= 3/4 & &lt; 1/1</p>
       )}
       {between11and43 && !exactly43 && (
-        <p className={'large-text'}>&gt;= 1/1 and &lt; 4/3</p>
+        <p className={'large-text'}>&gt;= 1/1 & &lt; 4/3</p>
       )}
       {greaterThan43 && <p className={'large-text'}>&gt;= 4/3</p>}
       <p className={'small-text'}>Board</p>
