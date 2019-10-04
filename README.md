@@ -1,12 +1,14 @@
 # Aspect-Ratio-Detector
 
-## Try it on [CodeSandbox](https://codesandbox.io/s/github/ChristopherJFoster/Aspect-Ratio-Detector).
+#### This README has been published (nearly verbatim) as an article on [Medium](https://t.co/bPMR92hayd?amp=1).
 
-### It's easier to resize the app when it's in [its own window](https://h7n89.csb.app).
+### Try the app on [CodeSandbox](https://codesandbox.io/s/github/ChristopherJFoster/Aspect-Ratio-Detector).
+
+### The app is easier to the app when it's in [its own window](https://h7n89.csb.app).
 
 In this project I'm exploring using media queries to detect and respond to aspect ratio _and_ viewport/screen size (not just the latter). Designing for different viewport widths (I'll use 'viewport' to mean 'viewport/screen') is perhaps a bit simpler, and it obviously works pretty well for scrollable material like paragraphs of text or a series of images. However, there are cases where some elements (perhaps the primary elements) of an app need to be visible at all times. Furthermore, we might want those elements to be as large as possible based on the available screen real estate.
 
-I'm beginning work on a version of [Battleship](<https://en.wikipedia.org/wiki/Battleship_(game)>) called Sandwich Hunter, so I'll need to display a board component and a controls component, and they both need to be visible at all times. Battleship already uses square grids, so I'm going to use a square board component in this project.
+I'm beginning work on a version of [Battleship](<https://en.wikipedia.org/wiki/Battleship_(game)>) called Sandwich Hunter, so I'll need to display a board component and a controls component, and they both need to be visible at all times. Battleship uses square grids, so I'll use a square board component in this project.
 
 In this article I'll be discussing the aspect ratios (ARs) of both the viewport _and_ the app itself - essentially how best to have the latter respond to the former.
 
@@ -17,7 +19,7 @@ In this article I'll be discussing the aspect ratios (ARs) of both the viewport 
 3. Title component runs full width of app
 4. Board component is as large as possible while accounting for 1 - 3
 5. Controls component is as large as possible while accounting for 1 - 4
-6. Do not ask users to adjust their viewport to accomodate the app
+6. Do not ask users to adjust their viewport to accommodate the app
 
 Note that it's quite possible to meet some goals while only querying viewport width. One would begin by choosing either the 3/4 or 4/3 layout for the app, and then choose one of the following options:
 
@@ -30,7 +32,7 @@ With a combination of aspect ratio media queries and responsiveness to viewport 
 
 ## The Aspect Ratio Media Query
 
-The [aspect ratio media query](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/aspect-ratio) expects for its value a [ratio](https://developer.mozilla.org/en-US/docs/Web/CSS/ratio) in the form of width/height - where both width and height are positive, unitless integers. Similar to the more commonly used [width](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/width) media query, an AR media query works with either a min, max, or exact value. For example, to apply CSS styles at exactly a 3/4 AR, we'd use something like:
+The [aspect ratio media query](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/aspect-ratio) expects for its value a [ratio](https://developer.mozilla.org/en-US/docs/Web/CSS/ratio) in the form of width/height - where both width and height are positive, unitless integers. Similar to the more commonly used [width media query](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/width), an AR media query works with either a min, max, or exact value. For example, to apply CSS styles at exactly a 3/4 AR, we'd use something like:
 
 ```css
 @media (aspect-ratio: 3/4) {
@@ -38,7 +40,7 @@ The [aspect ratio media query](https://developer.mozilla.org/en-US/docs/Web/CSS/
 }
 ```
 
-Note that even though 3/4 = 0.75, supplying 0.75 as the AR is invalid CSS syntax (0.75 is not a ratio). Note also that if you're using [less](http://lesscss.org/), the compiler will unhelpfully turn that 3/4 into 0.75. The [workaround](https://github.com/less/less.js/issues/3225) is to escape the ratio like so:
+Note that even though 3/4 = 0.75, supplying 0.75 as the AR is invalid CSS syntax (0.75 is not a ratio). Note also that if you're using the [less preprocessor](http://lesscss.org/), the compiler will unhelpfully turn that 3/4 into 0.75. The [workaround](https://github.com/less/less.js/issues/3225) is to escape the ratio like so:
 
 ```css
 @media (aspect-ratio: ~'3/4') {
@@ -101,7 +103,7 @@ In this project the App component is the container for the other components, and
 
 From: [src/less/App.less](https://github.com/ChristopherJFoster/Aspect-Ratio-Detector/blob/master/src/less/App.less)
 
-`vw`, if you're not familiar, is a [CSS viewport unit](https://developer.mozilla.org/en-US/docs/Web/CSS/length) corresponding to 1% of the width of the viewport. 100vw, therefore, sets the width to 100% of the width of the viewport, while 130vw sets the height to 130% of the width of the viewport. Together, these style the App container component to have (roughly) a 3/4 AR that is as large as possible based on the viewport width (true 3/4 would have a height of 133.333...vw. I rounded to 130 to make it easier to distribute the available space to the subcomponents and to avoid the inexact rendering I discovered to be a result of a repeating decimal).
+`vw`, if you're not familiar, is a [CSS viewport unit](https://developer.mozilla.org/en-US/docs/Web/CSS/length) corresponding to 1% of the width of the viewport. 100vw, therefore, sets the width of an element to 100% of the width of the viewport, while 130vw sets the height to 130% of the width of the viewport. Together, these style the App container component to have (roughly) a 3/4 AR that is as large as possible based on the viewport width (true 3/4 would have a height of 133.333...vw. I rounded to 130 to make it easier to distribute the available space to the subcomponents and to avoid the inexact rendering I discovered to be a result of a repeating decimal).
 
 ![Viewport aspect ratio: < 3/4](src/assets/images/less_than_3x4.png)
 
@@ -140,7 +142,7 @@ After setting the size and shape of the App container for this AR range, we can 
 
 ### Viewport aspect ratio: >= 1/1 & < 4/3
 
-We can move a little more quickly through the last two viewport AR ranges since they are similar to the first two, only turned on the side. From here, we'll want the app's AR to switch to ~4/3. As such, we'll want the App container component to be ~4/3. We can do that with the following `width` and `height` values.
+We can move a little more quickly through the last two viewport AR ranges since they are similar to the first two, only turned on the side. From here, we'll want the app's AR to switch to ~4/3. As such, we'll want the App container component to be ~4/3. We can do that with the following `width` and `height` values:
 
 ```css
 @media (min-aspect-ratio: ~'1/1') and (max-aspect-ratio: ~'4/3') {
