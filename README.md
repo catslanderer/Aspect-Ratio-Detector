@@ -6,7 +6,7 @@
 
 In this project I'm exploring using media queries to detect and respond to aspect ratio _and_ viewport/screen size (not just the latter). Designing for different viewport widths (I'll use 'viewport' to mean 'viewport/screen') is perhaps a bit simpler, and it obviously works pretty well for scrollable material like paragraphs of text or a series of images. However, there are cases where some elements (perhaps the primary elements) of an app need to be visible at all times. Furthermore, we might want those elements to be as large as possible based on the available screen real estate.
 
-A few of my projects are implementations of games ([Conway's Life](https://github.com/ChristopherJFoster/Conways-Life) and a version of [Battleship](<https://en.wikipedia.org/wiki/Battleship_(game)>) called Sandwich Hunter (in development)). In both cases we need to display a board component and a controls component, and they both need to be visible at all times. My implementation of Life features a square grid, and Battleship already uses square grids, so I'm going to use a square board component in this project.
+I'm beginning work on a version of [Battleship](<https://en.wikipedia.org/wiki/Battleship_(game)>) called Sandwich Hunter, so I'll need to display a board component and a controls component, and they both need to be visible at all times. Battleship already uses square grids, so I'm going to use a square board component in this project.
 
 In this article I'll be discussing the aspect ratios (ARs) of both the viewport _and_ the app itself - essentially how best to have the latter respond to the former.
 
